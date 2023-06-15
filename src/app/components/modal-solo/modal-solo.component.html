@@ -1,0 +1,26 @@
+<div class="modal">
+  <div class="content">
+    <div class="content__head">
+      <h1 class="title">You did it!</h1>
+      <p class="text">Game over! Here’s how you got on…</p>
+    </div>
+    <ul class="content__body">
+      <li class="resultat">
+        <span class="name">Time Elapsed</span>
+        <span class="value">{{ time }}</span>
+      </li>
+      <li class="resultat">
+        <span class="name">Moves Taken</span>
+        <span class="value">{{ moves }}</span>
+      </li>
+    </ul>
+    <div class="content__foot">
+      <button class="restart" (click)="handleRestartGame()">
+        Restart
+      </button>
+      <button class="new-game" (click)="handleGotoStarter()">
+        New Game
+      </button>
+    </div>
+  </div>
+</div>

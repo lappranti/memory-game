@@ -1,0 +1,142 @@
+@import "../../shared/style/variables";
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: $color4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 78px;
+  padding: 56px;
+
+  * {
+    transition: all 0.25s ease-in-out;
+  }
+
+  @media only screen and (max-width: 718px) {
+    padding: 24px;
+
+    .choices-container {
+      padding: 24px;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 400px) {
+      gap: 45px;
+
+      .title {
+        font-size: 32px;
+        line-height: 40px;
+      }
+      .choices-container {
+        border-radius: 10px;
+        gap: 24px;
+      }
+    }
+  }
+}
+
+.title {
+  font-size: 40px;
+  line-height: 50px;
+  color: $secondary4;
+}
+
+.choices-container {
+  width: 654px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  background-color: $secondary4;
+  border-radius: 20px;
+  padding: 32px;
+
+  .choice-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    label {
+      @include typo("h3");
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__item {
+        flex: 1;
+        text-align: center;
+        font-size: 26px;
+        line-height: 32px;
+        text-transform: capitalize;
+        color: $secondary4;
+
+        padding: 12px;
+        border-radius: 26px;
+        background-color: $color2;
+        cursor: pointer;
+
+        &.actived {
+          background-color: $color4;
+        }
+
+        &:not(&.actived) {
+          &:hover {
+            background-color: $secondary3;
+          }
+        }
+      }
+    }
+
+    &:nth-of-type(1) .choice,
+    &:nth-of-type(3) .choice {
+      gap: 30px;
+    }
+    &:nth-of-type(2) .choice {
+      gap: 20px;
+    }
+
+    @media only screen and (max-width: 400px) {
+      gap: 12px;
+
+      .choice {
+        gap: 12px !important;
+
+        &__item {
+          font-size: 16px;
+          line-height: 20px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+
+  .submit {
+    border: none;
+    background-color: $color1;
+    width: 100%;
+    padding: 12px;
+
+    @include typo("h2");
+    color: $secondary4;
+    border-radius: 35px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $btn-hover-color;
+    }
+
+    @media only screen and (max-width: 400px) {
+      font-size: 18px;
+      line-height: 22px;
+
+      padding: 10px;
+    }
+  }
+}

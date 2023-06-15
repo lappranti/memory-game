@@ -1,0 +1,25 @@
+<div class="modal">
+  <div class="content">
+    <div class="head">
+      <h1 class="title">{{ textTitlteModal }}</h1>
+      <p class="text">Game over! Here are the results…</p>
+    </div>
+    <ul class="players">
+      <li
+        class="players__item"
+        *ngFor="let player of playerList; let i = index"
+        [ngClass]="execo && i < 2 ? 'execo' : ''"
+      >
+        <span class="name"
+          >{{ player.nom }}
+          <span class="winner" *ngIf="!execo && i == 0">(Winner!)</span></span
+        >
+        <span class="score">{{ player.score }}</span>
+      </li>
+    </ul>
+    <div class="actions">
+      <button class="restart" (click)="handleRestart()">Restart</button
+      ><button class="new-setup" (click)="handleGotoStart()">New Game</button>
+    </div>
+  </div>
+</div>

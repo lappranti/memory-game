@@ -1,0 +1,37 @@
+//###Colors
+//Primary
+$color1: #fda214;
+$color2: #bcced9;
+$color3: #304859;
+$color4: #152938;
+//Secondary
+$secondary1: #f2f2f2;
+$secondary2: #7191a5;
+$secondary3: #6395b8;
+$secondary4: #fcfcfc;
+
+$btn-hover-color: #ffb84a;
+
+//Typography
+
+@mixin typo($type) {
+  @if ($type== "h1") {
+    font-size: 48px;
+    line-height: 60px;
+  } @else if($type== "h2") {
+    font-size: 32px;
+    line-height: 40px;
+  } @else if($type== "h3") {
+    font-size: 20px;
+    line-height: 25px;
+  } @else if($type== "body") {
+    font-size: 18px;
+    line-height: 22px;
+  } @else if($type == "n-s") {
+    font-size: 40px;
+    line-height: 51px;
+  } @else if($type== "n-b") {
+    font-size: 56px;
+    line-height: 69px;
+  }
+}

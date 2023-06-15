@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@1,700&display=swap");
+html,
+body,
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-style: normal;
+}

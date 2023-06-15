@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="title">memory</h1>
+  <div class="choices-container">
+    <ul class="choice-group" *ngFor="let choice of choicesList">
+      <label>{{ choice.label }}</label>
+      <ul class="choice">
+        <li
+          class="choice__item"
+          *ngFor="let item of choice.choices; let i = index"
+          [ngClass]="i == 0 ? 'actived' : ''"
+          #current
+          (click)="selectChoice(current)"
+          [class]="choice.id"
+        >
+          {{ item }}
+        </li>
+      </ul>
+    </ul>
+    <button class="submit" (click)="onSubmit()">Start Game</button>
+  </div>
+</div>

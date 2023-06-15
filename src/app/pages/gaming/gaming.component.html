@@ -1,0 +1,73 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <h1 class="logo">memory</h1>
+      <ul class="actions">
+        <li class="actions__item" (click)="initilisationGame()">Restart</li>
+        <li class="actions__item" (click)="handleGotoStarter()">New Game</li>
+        <li class="actions__item" (click)="handleShowMenuMobile()">Menu</li>
+      </ul>
+    </div>
+    <div class="section">
+      <ul
+        class="jetons "
+        [ngClass]="configuration.gridSize == 4 ? 'grid-four' : 'grid-six'"
+        [style.height]="height"
+      >
+        <li
+          class="jeton "
+          *ngFor="let jeton of tokens"
+          (click)="onTokenClick($event)"
+          [class.disabled]="isTimerRunning"
+        >
+          <span *ngIf="configuration.theme.includes('numbers')">{{
+            jeton
+          }}</span>
+          <i [class]="jeton" *ngIf="configuration.theme.includes('icons')"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="footer">
+      <ul class="multijoueur" *ngIf="configuration.numberOfPlayers > 1">
+        <li class="joueur players" *ngFor="let player of playersList">
+          <span class="joueur__nom joueur__nom--desktop">{{
+            player.nom | titlecase
+          }}</span>
+          <span class="joueur__nom joueur__nom--mobile">{{
+            extractPlayerInfo(player.nom) | titlecase
+          }}</span>
+          <span class="joueur__score">{{ player.score }}</span>
+        </li>
+      </ul>
+      <ul class="multijoueur" *ngIf="configuration.numberOfPlayers <= 1">
+        <li class="joueur">
+          <span class="joueur__nom">Time</span>
+          <span class="joueur__score">{{ timerMunite }}:{{ timerSecond }}</span>
+        </li>
+        <li class="joueur" *ngFor="let player of playersList">
+          <span class="joueur__nom">Moves</span>
+          <span class="joueur__score">{{ player.score }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-modal-solo
+  (restartGame)="initilisationGame()"
+  *ngIf="showModalSolo"
+  [time]="currentPartiTime"
+  [moves]="currentMoves"
+></app-modal-solo>
+
+<div class="modal-menu-mobile-container" *ngIf="showModalMenuMobile">
+  <app-modal-menu-mobile
+    (action)="handleDoMenuMobile($event)"
+  ></app-modal-menu-mobile>
+</div>
+
+<app-modal-multiplayer
+  *ngIf="showModalMultiplayer"
+  [playerList]="playersList"
+  (restart)="initilisationGame()"
+></app-modal-multiplayer>

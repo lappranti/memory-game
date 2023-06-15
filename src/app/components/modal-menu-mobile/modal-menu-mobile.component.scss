@@ -1,0 +1,55 @@
+@import "../../shared/style/variables";
+
+.modal {
+  position: fixed;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: #00000080;
+
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+.content {
+  padding: 24px;
+  width: 100%;
+  height: 224px;
+
+  background-color: $secondary1;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  * {
+    transition: all 0.25s ease-in-out;
+  }
+  .item {
+    padding: 14px;
+    border-radius: 26px;
+
+    background-color: #dfe7ec;
+    color: $color4;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #6395b8;
+    }
+
+    &--restart {
+      background-color: $color1;
+      color: $secondary4;
+
+      &:hover {
+        background-color: $btn-hover-color;
+      }
+    }
+  }
+}
